@@ -1,12 +1,12 @@
 <?php
-header('Access-Controll-Allow-Origin:*');
+header('Access-Control-Allow-Origin:*');
 include("../../connection.php");
 
 
-$Username = $_POST['Username'];
+$Email = $_POST['Email'];
 $Password = $_POST['Password'];
-$query=$mysqli->prepare('select UserID,RoleID,Password from users where Username=?');
-$query->bind_param('s',$Username);
+$query=$mysqli->prepare('select UserID,RoleID,Password from users where Email=?');
+$query->bind_param('s',$Email);
 $query->execute();
 $query->store_result();
 $num_rows=$query->num_rows;
@@ -22,7 +22,7 @@ if($num_rows== 0){
     if(password_verify($Password,$hashed_password)){
         $response['status']= 'logged in';
         $response['user_id']=$UserID;
-        $response['username']=$Username;
+        $response['Email']=$Email;
         echo json_encode($response);
     } else {
         $response['status']= 'wrong credentials';
