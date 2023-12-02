@@ -5,7 +5,7 @@ import axios from 'axios';
 function App() {
   useEffect(() => {
     axios
-      .get("http://localhost/hospital-managment/src/Backend/Config/connection.php")
+      .get("http://localhost/hospital-managment/Backend/connection.php")
       .then((res) => {
         console.log(res.data);
       })
