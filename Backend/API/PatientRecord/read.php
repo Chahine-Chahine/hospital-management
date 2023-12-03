@@ -1,7 +1,7 @@
 <?php
 include("../../connection.php");
 
-$RecordID = $_GET['RecordID']; // Assuming you're using GET method to pass RecordID
+$RecordID = $_POST['RecordID']; // Assuming you're using GET method to pass RecordID
 
 $query = $mysqli->prepare('SELECT * FROM PatientRecord WHERE RecordID = ?');
 $query->bind_param('i', $RecordID);
