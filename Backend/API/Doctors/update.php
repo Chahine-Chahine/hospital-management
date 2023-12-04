@@ -10,14 +10,14 @@ $Specialization = $_POST['Specialization'];
 
 $query = $mysqli->prepare('
     UPDATE Users
-    INNER JOIN Doctor ON Users.UserID = Doctor.UserID
+    INNER JOIN Doctors ON Users.UserID = Doctors.UserID
     SET
         Users.Username = ?,
         Users.Email = ?,
         Users.Address = ?,
         Users.Specialization = ?
     WHERE
-        Doctor.DoctorID = ?
+        Doctors.DoctorID = ?
 ');
 
 $query->bind_param('sssss', $Username, $Email, $Address, $Specialization, $DoctorID);

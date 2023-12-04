@@ -8,7 +8,7 @@ $UserID = $_POST['UserID'];
 $DoctorID = $_POST['DoctorID'];
 
 
-$query = $mysqli->prepare('insert into patient(PatientID, UserID, DoctorID) 
+$query = $mysqli->prepare('insert into patients(PatientID, UserID, DoctorID) 
 values(?,?,?)');
 $query->bind_param('ii', $PatientID , $UserID, $DoctorID);
 $query->execute();

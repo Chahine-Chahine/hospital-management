@@ -5,14 +5,14 @@ include("../../connection.php");
 $RoomID = $_POST['RoomID'];
 
 // Check if the room exists before attempting deletion
-$checkQuery = $mysqli->prepare('SELECT RoomID FROM room WHERE RoomID = ?');
+$checkQuery = $mysqli->prepare('SELECT RoomID FROM rooms WHERE RoomID = ?');
 $checkQuery->bind_param('i', $RoomID);
 $checkQuery->execute();
 $checkResult = $checkQuery->get_result();
 
 if ($checkResult->num_rows > 0) {
     // Room exists, proceed with deletion
-    $deleteQuery = $mysqli->prepare('DELETE FROM room WHERE RoomID = ?');
+    $deleteQuery = $mysqli->prepare('DELETE FROM rooms WHERE RoomID = ?');
     $deleteQuery->bind_param('i', $RoomID);
     $deleteQuery->execute();
 

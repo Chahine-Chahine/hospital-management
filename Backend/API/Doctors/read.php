@@ -16,9 +16,9 @@ $query = $mysqli->prepare('
     FROM
         Users
     INNER JOIN
-        Doctor ON Users.UserID = Doctor.UserID
+        Doctors ON Users.UserID = Doctors.UserID
     WHERE
-        Doctor.DoctorID = ?
+        Doctors.DoctorID = ?
 ');
 
 $query->bind_param('s', $DoctorID);

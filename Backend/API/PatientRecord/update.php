@@ -7,7 +7,7 @@ $Treatment = $_POST['Treatment'];
 $Prescription = $_POST['Prescription'];
 $RecordDateTime = $_POST['RecordDateTime'];
 
-$query = $mysqli->prepare('UPDATE PatientRecord SET Diagnosis = ?, Treatment = ?, Prescription = ?, RecordDateTime = ? WHERE RecordID = ?');
+$query = $mysqli->prepare('UPDATE PatientRecords SET Diagnosis = ?, Treatment = ?, Prescription = ?, RecordDateTime = ? WHERE RecordID = ?');
 $query->bind_param('ssssi', $Diagnosis, $Treatment, $Prescription, $RecordDateTime, $RecordID);
 $query->execute();
 

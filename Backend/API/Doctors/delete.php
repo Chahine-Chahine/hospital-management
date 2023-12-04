@@ -5,10 +5,10 @@ include("../../connection.php");
 $DoctorID = $_POST['DoctorID'];
 
 $query = $mysqli->prepare('
-    DELETE Users, Doctor
+    DELETE Users, Doctors
     FROM Users
-    INNER JOIN Doctor ON Users.UserID = Doctor.UserID
-    WHERE Doctor.DoctorID = ?
+    INNER JOIN Doctors ON Users.UserID = Doctors.UserID
+    WHERE Doctors.DoctorID = ?
 ');
 
 $query->bind_param('s', $DoctorID);

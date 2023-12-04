@@ -8,7 +8,7 @@ $Treatment = $_POST['Treatment'];
 $Prescription = $_POST['Prescription'];
 $RecordDateTime = $_POST['RecordDateTime'];
 
-$query = $mysqli->prepare('INSERT INTO PatientRecord (PatientID, DoctorID, Diagnosis, Treatment, Prescription, RecordDateTime) VALUES (?, ?, ?, ?, ?, ?)');
+$query = $mysqli->prepare('INSERT INTO PatientRecords (PatientID, DoctorID, Diagnosis, Treatment, Prescription, RecordDateTime) VALUES (?, ?, ?, ?, ?, ?)');
 $query->bind_param('iissss', $PatientID, $DoctorID, $Diagnosis, $Treatment, $Prescription, $RecordDateTime);
 $query->execute();
 

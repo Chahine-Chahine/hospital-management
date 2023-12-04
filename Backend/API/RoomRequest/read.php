@@ -3,10 +3,10 @@ include("../../connection.php");
 
 $AssignmentID = $_POST['AssignmentID']; 
 
-$query = $mysqli->prepare('SELECT RoomAssignment.*, Patient.*, Room.Status
+$query = $mysqli->prepare('SELECT RoomAssignment.*, Patients.*, Rooms.Status
                            FROM RoomAssignment
-                           JOIN Patient ON RoomAssignment.PatientID = Patient.PatientID
-                           JOIN Room ON RoomAssignment.RoomID = Room.RoomID
+                           JOIN Patients ON RoomAssignment.PatientID = Patients.PatientID
+                           JOIN Rooms ON RoomAssignment.RoomID = Rooms.RoomID
                            WHERE RoomAssignment.AssignmentID = ?');
 $query->bind_param('i', $AssignmentID);
 $query->execute();

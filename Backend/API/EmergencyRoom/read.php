@@ -19,9 +19,9 @@ $query = $mysqli->prepare('
     FROM
         EmergencyRoomRequests
     LEFT JOIN
-        Patient ON EmergencyRoomRequests.PatientID = Patient.PatientID
+        Patients ON EmergencyRoomRequests.PatientID = Patients.PatientID
     LEFT JOIN
-        Users ON Patient.UserID = Users.UserID
+        Users ON Patients.UserID = Users.UserID
     WHERE
         EmergencyRoomRequests.RequestID = ?
 ');

@@ -6,24 +6,24 @@ $AppointmentID = $_POST['AppointmentID'];
 
 $query = $mysqli->prepare('
 SELECT
-Appointment.AppointmentID,
-Appointment.PatientID,
-Appointment.DoctorID,
-Appointment.AppointmentDateTime,
-Appointment.Status,
+Appointments.AppointmentID,
+Appointments.PatientID,
+Appointments.DoctorID,
+Appointments.AppointmentDateTime,
+Appointments.Status,
 Users.FirstName AS DoctorName,
 Users.LastName AS DoctorLastName,
 Users.Specialization AS DoctorSpecialization
 FROM
-Appointment
+Appointments
 INNER JOIN
-Patient ON Appointment.PatientID = Patient.PatientID
+Patients ON Appointments.PatientID = Patients.PatientID
 INNER JOIN
-Doctor ON Appointment.DoctorID = Doctor.DoctorID
+Doctors ON Appointments.DoctorID = Doctors.DoctorID
 INNER JOIN
-Users ON Doctor.UserID = Users.UserID
+Users ON Doctors.UserID = Users.UserID
 WHERE
-Appointment.AppointmentID = ?
+Appointments.AppointmentID = ?
 ');
 
 $query->bind_param('i', $AppointmentID);

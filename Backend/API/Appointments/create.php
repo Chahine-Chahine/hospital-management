@@ -8,7 +8,7 @@ $AppointmentDateTime = $_POST['AppointmentDateTime'];
 $Status = $_POST['Status'];
 
 
-$query = $mysqli->prepare('insert into appointment(PatientID, DoctorID, AppointmentDateTime, Status) 
+$query = $mysqli->prepare('insert into appointments(PatientID, DoctorID, AppointmentDateTime, Status) 
 values(?,?,?,?)');
 $query->bind_param('iiss',$PatientID, $DoctorID , $AppointmentDateTime, $Status);
 $query->execute();

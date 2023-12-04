@@ -3,7 +3,7 @@ include("../../connection.php");
 
 $RecordID = $_POST['RecordID'];
 
-$query = $mysqli->prepare('DELETE FROM PatientRecord WHERE RecordID = ?');
+$query = $mysqli->prepare('DELETE FROM PatientRecords WHERE RecordID = ?');
 $query->bind_param('i', $RecordID);
 $query->execute();
 
