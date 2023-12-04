@@ -7,6 +7,15 @@
     background-color: wheat;
 }
 
+
+.wrapper{
+    display: flex;
+    flex-direction: column ;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-40px);
+}
+
 .Form{
     display: flex;
     flex-direction: column;
@@ -33,7 +42,7 @@ button{
     justify-content: center;
     padding: 14px;
     width: 150px;
-    margin: 15px;
+    margin: 10px;
     color: #ffffff;
     background-color: #081d2b;
     border-radius: 8px;

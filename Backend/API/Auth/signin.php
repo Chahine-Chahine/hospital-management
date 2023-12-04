@@ -24,6 +24,7 @@ if($num_rows== 0){
 } else {
     if(password_verify($Password,$hashed_password)){
         $response['status']= 'logged in';
+        $response['RoleID']=$RoleID;
         $response['user_id']=$UserID;
         $response['Email']=$Email;
         echo json_encode($response);
