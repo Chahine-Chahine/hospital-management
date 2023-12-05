@@ -48,7 +48,7 @@ function UserDetails() {
 
   return (
     <div>
-      <h2>User Details</h2>
+      <h2>Read Doctors</h2>
       <form onSubmit={handleSubmit}>
         <label>
           Doctor ID:

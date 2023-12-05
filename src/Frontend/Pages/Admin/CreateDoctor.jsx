@@ -44,14 +44,12 @@ function Form() {
 
       console.log(response);
 
-      // Handle the response accordingly
+     
       if (response.status === "true") {
         console.log("User signed up successfully");
-        resetForm(); // Reset the form fields
-        // Optionally, you can redirect or show a success message here
+        resetForm(); 
       } else {
         console.log("Failed to sign up. Status:", response.status);
-        // Optionally, you can show an error message to the user
       }
     } catch (error) {
       console.error("Error signing up:", error.message);
@@ -62,7 +60,7 @@ function Form() {
     <div className="Container">
       <div className="createForm">
         <div className="wrapper">
-          <h1>Sign Up</h1>
+          <h1>Create Doctor</h1>
           <form onSubmit={handleSignUp}>
             <label htmlFor="roleID"></label>
             <input
@@ -152,7 +150,7 @@ function Form() {
               required
             />
 
-            <button type="submit">Sign Up</button>
+            <button type="submit">Create</button>
           </form>
         </div>
       </div>
