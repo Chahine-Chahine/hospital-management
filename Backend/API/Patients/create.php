@@ -3,8 +3,9 @@ header('Access-Control-Allow-Origin:*');
 include("../../connection.php");
 
 $PatientID = $_POST['PatientID'];
+$DoctorID = isset($_POST['DoctorID']) ? $_POST['DoctorID'] : null; 
 
-// Assuming you have the necessary information for the new patient
+
 $Username = $_POST['Username'];
 $Password = $_POST['Password'];
 $FirstName = $_POST['FirstName'];
@@ -12,22 +13,19 @@ $LastName = $_POST['LastName'];
 $Email = $_POST['Email'];
 $Address = $_POST['Address'];
 $Specialization = $_POST['Specialization'];
-$RoleID = isset($_POST['RoleID']) ? $_POST['RoleID'] : 3;  
+$RoleID = isset($_POST['RoleID']) ? $_POST['RoleID'] : 3;
 
-// Insert a new record into the Users table
 $insertUserQuery = $mysqli->prepare('INSERT INTO Users (RoleID, Username, Password, FirstName, LastName, Email, Address, Specialization) VALUES (?, ?, ?, ?, ?, ?, ?, ?)');
 $insertUserQuery->bind_param('isssssss', $RoleID, $Username, $Password, $FirstName, $LastName, $Email, $Address, $Specialization);
 $insertUserQuery->execute();
 
-// Get the auto-incremented UserID
 $UserID = $mysqli->insert_id;
 
-// Insert a new record into the Patients table
 $insertPatientQuery = $mysqli->prepare('INSERT INTO Patients (PatientID, UserID, DoctorID) VALUES (?, ?, ?)');
 $insertPatientQuery->bind_param('iii', $PatientID, $UserID, $DoctorID);
 $insertPatientQuery->execute();
 
-// Fetch the newly inserted patient's information
+
 $query = $mysqli->prepare('
     SELECT
         Users.UserID,

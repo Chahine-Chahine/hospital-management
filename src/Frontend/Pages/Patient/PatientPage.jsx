@@ -1,3 +1,5 @@
+import CreatePatientRecord from "./CreateRecord";
+import ReadPatientRecord from "./ReadRecord";
 
 
 
@@ -5,7 +7,11 @@ function PatientPage(){
 
 
     return (
-        <h1>Welcome to Patient Page</h1>
+        <>
+        <CreatePatientRecord/>
+        <br/>
+        <ReadPatientRecord/>
+        </>
     )
 }
 

@@ -13,6 +13,7 @@ import CreatePatient from '../Admin/CreatePatient';
 import ReadPatient from '../Admin/ReadPatient';
 import UpdatePatient from '../Admin/UpdatePatient';
 import DeletePatient from '../Admin/DeletePatient';
+import ReadPatientRecord from '../Patient/ReadRecord';
 function App() {
   return (
     <BrowserRouter>
@@ -29,6 +30,7 @@ function App() {
         <Route path="/admin/delete-patient" element={<DeletePatient/>} />
         <Route path="/doctor" element={<DoctorPage />} />
         <Route path="/patient" element={<PatientPage />} />
+        <Route path="/patient/patient-record" element={<ReadPatientRecord />} />
       </Routes>
  
     </BrowserRouter>
