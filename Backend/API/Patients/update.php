@@ -6,21 +6,20 @@ $PatientID = $_POST['PatientID'];
 $Username = $_POST['Username'];
 $Email = $_POST['Email'];
 $Address = $_POST['Address'];
-$Specialization = $_POST['Specialization'];
+
 
 $query = $mysqli->prepare('
     UPDATE Users
-    INNER JOIN Patient ON Users.UserID = Patient.UserID
+    INNER JOIN Patients ON Users.UserID = Patients.UserID
     SET
         Users.Username = ?,
         Users.Email = ?,
-        Users.Address = ?,
-        Users.Specialization = ?
+        Users.Address = ?
     WHERE
-        Patient.PatientID = ?
+        Patients.PatientID = ?
 ');
 
-$query->bind_param('sssss', $Username, $Email, $Address, $Specialization, $PatientID);
+$query->bind_param('ssss', $Username, $Email, $Address, $PatientID);
 $query->execute();
 
 $response = [];
